@@ -60,7 +60,7 @@ button {
 .buttons {
     display: flex;
     justify-content: center;
-    gap: 50px; /* Space buttons apart */
+    gap: 30px; /* Space buttons apart */
     margin-top: 20px; /* Add spacing from text */
 }
 
