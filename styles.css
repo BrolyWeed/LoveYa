@@ -1,4 +1,4 @@
-/* Basic Reset */
+/* Reset */
 * {
     margin: 0;
     padding: 0;
@@ -7,29 +7,21 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #fff;
-    color: #333;
-    line-height: 1.6;
     text-align: center;
+    background-color: white;
+    color: black;
 }
 
 header {
-    background-color: #4CAF50; /* Green header */
-    color: white;
-    padding: 20px;
-}
-
-footer {
-    background-color: #333; /* Dark footer */
-    color: white;
-    padding: 10px;
+    margin-top: 50px;
+    font-size: 24px;
 }
 
 main {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 70vh; /* Vertically centered, adjust as needed */
+    height: 60vh;
     flex-direction: column;
 }
 
@@ -53,4 +45,6 @@ button {
 .yes-btn {
     background-color: green;
     color: white;
+}
+
 }
