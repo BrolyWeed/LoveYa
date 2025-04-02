@@ -37,8 +37,11 @@ main {
 
 /* Button Styles */
 button {
+    width: 150px; /* Set a base width */
+    height: 50px; /* Set a base height */
+    font-size: 16px; /* Make text readable */
     border-radius: 15px;
-    transition: transform 0.2s ease-in-out; /* Smooth scaling */
+    transition: transform 0.2s ease-in-out;
 }
 
 /* NO and YES button colors */
