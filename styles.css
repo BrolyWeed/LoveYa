@@ -48,3 +48,16 @@ button {
 }
 
 }
+/* GIF Styling */
+.gif {
+    width: 250px; /* Adjust as needed */
+    height: auto;
+    margin-bottom: 20px;
+}
+
+/* Question Text Styling */
+.question {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
