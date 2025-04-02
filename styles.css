@@ -12,11 +12,14 @@ body {
     color: black;
 }
 
-header {
-    margin-top: 50px;
-    font-size: 24px;
+/* Question Text Styling */
+.question {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
 }
 
+/* Center Content */
 main {
     display: flex;
     justify-content: center;
@@ -25,18 +28,24 @@ main {
     flex-direction: column;
 }
 
-.buttons {
-    display: flex;
-    gap: 20px;
+/* GIF Styling */
+.gif {
+    width: 250px; /* Adjust as needed */
+    height: auto;
+    margin-bottom: 20px;
 }
 
+/* Button Styles */
 button {
     padding: 20px 40px;
     font-size: 18px;
     cursor: pointer;
-    transition: transform 0.3s;
+    transition: transform 0.3s, margin 0.3s;
+    border-radius: 15px; /* Rounded corners */
+    border: none;
 }
 
+/* NO and YES button colors */
 .no-btn {
     background-color: red;
     color: white;
@@ -47,17 +56,17 @@ button {
     color: white;
 }
 
-}
-/* GIF Styling */
-.gif {
-    width: 250px; /* Adjust as needed */
-    height: auto;
-    margin-bottom: 20px;
+/* Button container */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 50px; /* Space buttons apart */
+    margin-top: 20px; /* Add spacing from text */
 }
 
-/* Question Text Styling */
-.question {
-    font-size: 22px;
-    font-weight: bold;
-    margin-bottom: 15px;
+/* Adjust scaling behavior */
+.no-btn, .yes-btn {
+    display: inline-block;
+    transform-origin: center;
 }
+
