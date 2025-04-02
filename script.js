@@ -1,26 +1,31 @@
-// Get references to the buttons
 const noButton = document.getElementById('noButton');
 const yesButton = document.getElementById('yesButton');
 
-// Initial size values for buttons
 let noSize = 1;
 let yesSize = 1;
-
-// Counter for how many times the buttons have been clicked
 let clickCount = 0;
 
-// Function to handle the click behavior for the "NO" button
-noButton.addEventListener('click', () => {
-    // Update the text of the "NO" button with each click
-    const phrases = ['NO', 'NOPE', 'NOT TODAY', 'NEVER', 'NO WAY'];
-    noButton.textContent = phrases[clickCount % phrases.length];
+const noTexts = ["NO", "Seriously?", "Dude, I swear to god", "Last chance..."];
 
-    // Resize the buttons
-    if (clickCount < 3) {
-        noSize -= 0.1; // Decrease the "NO" button size
-        yesSize += 0.1; // Increase the "YES" button size
+// "NO" button click behavior
+noButton.addEventListener('click', () => {
+    if (clickCount < noTexts.length) {
+        noButton.textContent = noTexts[clickCount]; // Update text
+        noSize -= 0.15;
+        yesSize += 0.15;
         noButton.style.transform = `scale(${noSize})`;
         yesButton.style.transform = `scale(${yesSize})`;
         clickCount++;
+    } else {
+        // Turn "NO" into another "YES" button
+        noButton.textContent = "YES";
+        noButton.style.backgroundColor = "green";
+        noButton.style.transform = "scale(1)";
+        noButton.onclick = () => window.location.href = "landing.html";
     }
+});
+
+// "YES" button click behavior
+yesButton.addEventListener('click', () => {
+    window.location.href = "landing.html";
 });
