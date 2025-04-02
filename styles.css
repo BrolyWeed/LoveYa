@@ -40,7 +40,6 @@ button {
     border-radius: 15px;
     transition: transform 0.2s ease-in-out; /* Smooth scaling */
 }
-}
 
 /* NO and YES button colors */
 .no-btn {
