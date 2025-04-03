@@ -69,3 +69,38 @@ button {
     transform-origin: center;
 }
 
+/* Styles for the Landing Page */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fce4ec; /* Light pink background */
+    text-align: center;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 600px;
+}
+
+.gif {
+    width: 250px; /* Adjust the size of the GIF */
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.continue-btn {
+    background-color: #ff4081; /* Pink button */
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+.continue-btn:hover {
+    background-color: #e91e63; /* Darker pink on hover */
+}
