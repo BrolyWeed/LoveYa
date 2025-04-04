@@ -148,14 +148,13 @@ header {
 .button-grid button:hover {
     background-color: #e91e63;
 }
-/* General Reset */
+/* Reset + layout */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Full viewport height */
 body, html {
   height: 100%;
   width: 100%;
@@ -163,27 +162,29 @@ body, html {
   background-color: #f9f9f9;
 }
 
-/* Header bar like YouTube */
+/* Header (like YouTube) */
 .marktube-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  border-bottom: 1px solid #ccc;
+  justify-content: space-between;
+  padding: 10px 24px;
+  border-bottom: 1px solid #ddd;
   background-color: white;
 }
 
 .logo {
   height: 40px;
+  max-width: 150px;
 }
 
 .search-bar {
   flex: 1;
   margin: 0 20px;
-  padding: 8px;
+  padding: 8px 16px;
   font-size: 16px;
-  border: 1px solid #ddd;
-  border-radius: 20px;
+  border-radius: 24px;
+  border: 1px solid #ccc;
+  max-width: 600px;
 }
 
 .profile-icon {
@@ -193,32 +194,27 @@ body, html {
   object-fit: cover;
 }
 
-/* Main layout */
-.marktube-container {
-  display: flex;
-  justify-content: center;
-  padding: 20px;
-  width: 100%;
-}
-
+/* Main content layout */
 .marktube-content {
   display: flex;
-  max-width: 1200px;
-  width: 100%;
-  gap: 30px;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
-/* Main video player */
 .main-video {
   flex: 2;
+  min-width: 60%;
 }
 
 .main-video video {
   width: 100%;
   max-height: 600px;
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  background-color: black;
 }
 
 .main-video h2 {
@@ -229,6 +225,8 @@ body, html {
 /* Sidebar */
 .sidebar {
   flex: 1;
+  min-width: 300px;
+  max-width: 400px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -241,7 +239,7 @@ body, html {
 
 .thumbnail img {
   width: 100%;
-  border-radius: 8px;
+  border-radius: 10px;
   object-fit: cover;
   height: 80px;
 }
