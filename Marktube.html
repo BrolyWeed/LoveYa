@@ -20,7 +20,13 @@
     <!-- Main video and comments -->
     <div class="main-content">
       <video src="marktubevideo.mp4" controls></video>
-      <h2>MarkTube Classic</h2>
+      <h2>VIDEO TITLE</h2>
+
+      <!-- Like and Hate buttons -->
+      <div class="reaction-buttons">
+        <button id="likeBtn" onclick="updateLikes()">👍 Like (<span id="likeCount">0</span>)</button>
+        <button id="hateBtn" onclick="updateHates()">🖕 HATE (<span id="hateCount">0</span>)</button>
+      </div>
 
       <div class="comment-section">
         <h3>Comments</h3>
@@ -49,6 +55,19 @@
   </div>
 
   <script>
+    let likeCount = 0;
+    let hateCount = 0;
+
+    function updateLikes() {
+      likeCount++;
+      document.getElementById("likeCount").textContent = likeCount;
+    }
+
+    function updateHates() {
+      hateCount++;
+      document.getElementById("hateCount").textContent = hateCount;
+    }
+
     function postComment() {
       const input = document.getElementById("commentInput");
       const display = document.getElementById("commentsDisplay");
