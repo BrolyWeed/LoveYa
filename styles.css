@@ -176,26 +176,22 @@ html, body {
 }
 
 /* Isolated deep purple background for this page */
-.marktube-body {
-  background-color: #2e1a47;
-  color: #fff;
-  min-height: 100vh;           /* Ensure full vertical coverage */
-  padding-top: 312px;          /* Prevents top clipping */
-  overflow-x: hidden;          /* Prevents weird horizontal scroll */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-/* Header (like YouTube) */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 24px;
-  width: 100%;
-  background-color: #3a1f61; /* Lighter purple */
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
+.marktube-body {
+  background-color: #2e1a47; /* Deep purple for this page only */
+  min-height: 100vh;
+  overflow-x: hidden;
 }
+
+.marktube-content {
+  padding-top: 312px; /* Pushes content without stretching */
+  box-sizing: border-box;
+}
+
 
 /* Rest of your styles continue here... (unchanged) */
