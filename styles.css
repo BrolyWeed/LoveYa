@@ -173,6 +173,11 @@ body, html {
   height: 100%;
   width: 100%;
   font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+/* Isolated deep purple background for the marketube page */
+.marktube-body {
   background-color: #2e1a47; /* Deep purple background */
   color: #fff;
 }
@@ -183,8 +188,8 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 10px 24px;
-  width: 100%; /* Extend header across full width */
-  background-color: #1f0f35; /* Darker shade */
+  width: 100%;
+  background-color: #3a1f61; /* Lighter purple */
 }
 
 #logo {
@@ -227,7 +232,6 @@ header {
 
 .main-content video {
   width: 100%;
-  max-width: 100%;
   height: auto;
   aspect-ratio: 16 / 9;
   border-radius: 12px;
@@ -242,18 +246,18 @@ header {
 /* Reaction buttons */
 .reaction-buttons {
   display: flex;
-  gap: 20px;
+  gap: 10px;
   margin-top: 10px;
 }
 
 .reaction-buttons button {
-  padding: 10px 20px;
-  background-color: #8e44ad; /* Purple button */
+  padding: 6px 12px;
+  background-color: transparent;
   color: white;
-  border: none;
+  border: 1px solid #fff;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .reaction-buttons button:hover {
@@ -284,6 +288,12 @@ header {
 .sidebar span {
   font-size: 14px;
   color: #ddd;
+}
+
+.author {
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 4px;
 }
 
 /* Comment section */
