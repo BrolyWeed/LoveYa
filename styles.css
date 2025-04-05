@@ -174,7 +174,7 @@ body, html {
   width: 100%;
   font-family: Arial, sans-serif;
   margin: 0;
-  padding-top: 100px; /* Increased space to push content lower */
+  padding-top: 300px; /* Increased space to push content lower */
 }
 
 /* Isolated deep purple background for the marketube page */
