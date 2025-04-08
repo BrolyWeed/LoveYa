@@ -5,138 +5,207 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MarkTube</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    /* Top bar */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      background-color: #7a4fbf;  /* Lighter purple */
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+    }
+
+    #logo {
+      height: 40px;
+    }
+
+    .search-bar {
+      flex: 1;
+      max-width: 600px;
+      margin: 0 40px;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 8px;
+      font-size: 16px;
+    }
+
+    .profile-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+    }
+
+    /* Main content layout */
+    .page {
+      max-width: 1920px;
+      margin: 0 auto;
+      padding-top: 150px;  /* Added to move everything down */
+      padding: 20px 40px;
+      display: flex;
+      gap: 20px;
+    }
+
+    .main-content {
+      flex: 3;
+    }
+
+    .main-content video {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+    }
+
+    .main-content h2 {
+      margin: 10px 0;
+    }
+
+    /* Like/Hate buttons */
+    .reaction-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .like, .hate {
+      font-size: 18px;
+      padding: 5px 10px;
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+
+    /* Views */
+    .view-count {
+      font-size: 14px;
+      color: #333;
+      margin-top: 5px;
+    }
+
+    /* Profile icon and channel name */
+    .profile-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .profile-box img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    .profile-box .channel-name {
+      font-size: 16px;
+      color: #333;
+    }
+
+    .profile-box button {
+      background-color: #000;
+      color: #fff;
+      border: none;
+      padding: 5px 12px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .profile-box button:hover {
+      background-color: #333;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .sidebar-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .sidebar img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 4px;
+      object-fit: cover;
+    }
+
+    .sidebar span {
+      font-size: 14px;
+      color: #444;
+    }
+
+  </style>
 </head>
 <body>
-  <div class="page-container">
-    <header class="top-bar">
-      <img src="marktube_logo.png" alt="MarkTube Logo" class="logo" />
-      <input type="text" placeholder="Search..." class="search-bar" />
-      <img src="profile_icon.jpg" alt="Profile Icon" class="profile-icon" />
-    </header>
 
-    <main class="main-content">
-      <section class="video-section">
-        <video src="main_video.mp4" controls class="main-video"></video>
-        <h1 class="video-title">VIDEO TITLE</h1>
+  <!-- Header -->
+  <header>
+    <img src="marktubelogo.png" alt="MarkTube Logo" id="logo" />
+    <div class="search-bar">
+      <input type="text" placeholder="Search" />
+    </div>
+    <img src="marktubepfp.jpg" alt="Profile" class="profile-icon" />
+  </header>
 
-        <div class="video-stats">
-          <p id="view-count">0 views</p>
-          <div class="reactions">
-            <button id="like-btn">👍 Like <span id="like-count">0</span></button>
-            <button id="hate-btn">🖕 HATE <span id="hate-count">0</span></button>
-          </div>
-        </div>
+  <!-- Main Content -->
+  <div class="page">
+    <!-- Main video and comments -->
+    <div class="main-content">
+      <video src="marktubevideo.mp4" controls></video>
+      <h2>VIDEO TITLE</h2>
+      
+      <!-- Views, Like/Hate buttons -->
+      <div class="view-count">80 views</div>
+      <div class="reaction-buttons">
+        <button class="like">👍 Like (3)</button>
+        <button class="hate">👎 HATE (2)</button>
+      </div>
 
-        <div class="channel-info">
-          <img src="marksicon.jpg" alt="Channel Icon" class="channel-icon" />
-          <div class="channel-text">
-            <p class="channel-name">BrolyWeed</p>
-            <button class="worship-button">Worship</button>
-          </div>
-        </div>
+      <!-- Profile box with subscribe button -->
+      <div class="profile-box">
+        <img src="marksicon.jpg" alt="Profile Picture" />
+        <div class="channel-name">BrolyWeed</div>
+        <button>Follow</button>
+      </div>
+    </div>
 
-        <div class="comment-section">
-          <div class="comment-input">
-            <img src="profile_icon.jpg" alt="Profile" class="comment-profile" />
-            <input type="text" id="comment-box" placeholder="Add a comment..." />
-            <button onclick="postComment()">Post</button>
-          </div>
-          <div id="comments-list"></div>
-        </div>
-      </section>
-
-      <aside class="sidebar">
-        <div class="thumbnail">
-          <img src="thumb1.jpg" alt="Thumb 1" />
-          <p>Why Josuke sucks and you should hate him too</p>
-          <small>By RohanGaming</small>
-        </div>
-        <!-- 9 more thumbnails -->
-        <div class="thumbnail">
-          <img src="thumb2.jpg" alt="Thumb 2" />
-          <p>Placeholder 2</p>
-          <small>By Author</small>
-        </div>
-        <div class="thumbnail">
-          <img src="thumb3.jpg" alt="Thumb 3" />
-          <p>Placeholder 3</p>
-          <small>By Author</small>
-        </div>
-        <div class="thumbnail">
-          <img src="thumb4.jpg" alt="Thumb 4" />
-          <p>Placeholder 4</p>
-          <small>By Author</small>
-        </div>
-        <div class="thumbnail">
-          <img src="thumb5.jpg" alt="Thumb 5" />
-          <p>Placeholder 5</p>
-          <small>By Author</small>
-        </div>
-        <div class="thumbnail">
-          <img src="thumb6.jpg" alt="Thumb 6" />
-          <p>Placeholder 6</p>
-          <small>By Author</small>
-        </div>
-        <div class="thumbnail">
-          <img src="thumb7.jpg" alt="Thumb 7" />
-          <p>Placeholder 7</p>
-          <small>By Author</small>
-        </div>
-        <div class="thumbnail">
-          <img src="thumb8.jpg" alt="Thumb 8" />
-          <p>Placeholder 8</p>
-          <small>By Author</small>
-        </div>
-        <div class="thumbnail">
-          <img src="thumb9.jpg" alt="Thumb 9" />
-          <p>Placeholder 9</p>
-          <small>By Author</small>
-        </div>
-        <div class="thumbnail">
-          <img src="thumb10.jpg" alt="Thumb 10" />
-          <p>Placeholder 10</p>
-          <small>By Author</small>
-        </div>
-      </aside>
-    </main>
+    <!-- Sidebar thumbnails -->
+    <div class="sidebar">
+      <div class="sidebar-item"><img src="marktubevideo1.jpg" /><span>Why Josuke sucks and you should hate him too</span><span>By RohanGaming</span></div>
+      <div class="sidebar-item"><img src="marktubevideo2.jpg" /><span>Placeholder 2</span><span>By Author</span></div>
+      <div class="sidebar-item"><img src="marktubevideo3.jpg" /><span>Placeholder 3</span><span>By Author</span></div>
+      <div class="sidebar-item"><img src="marktubevideo4.jpg" /><span>Placeholder 4</span><span>By Author</span></div>
+      <div class="sidebar-item"><img src="marktubevideo5.jpg" /><span>Placeholder 5</span><span>By Author</span></div>
+      <div class="sidebar-item"><img src="marktubevideo6.jpg" /><span>Placeholder 6</span><span>By Author</span></div>
+      <div class="sidebar-item"><img src="marktubevideo7.jpg" /><span>Placeholder 7</span><span>By Author</span></div>
+      <div class="sidebar-item"><img src="marktubevideo8.jpg" /><span>Placeholder 8</span><span>By Author</span></div>
+      <div class="sidebar-item"><img src="marktubevideo9.jpg" /><span>Placeholder 9</span><span>By Author</span></div>
+      <div class="sidebar-item"><img src="marktubevideo10.jpg" /><span>Placeholder 10</span><span>By Author</span></div>
+    </div>
   </div>
 
-  <script>
-    const likeBtn = document.getElementById('like-btn');
-    const hateBtn = document.getElementById('hate-btn');
-    const likeCount = document.getElementById('like-count');
-    const hateCount = document.getElementById('hate-count');
-    const viewCount = document.getElementById('view-count');
-
-    likeCount.textContent = Math.floor(Math.random() * 26);
-    hateCount.textContent = Math.floor(Math.random() * 11);
-    viewCount.textContent = `${Math.floor(Math.random() * 100) + 1} views`;
-
-    likeBtn.addEventListener('click', () => {
-      likeCount.textContent = parseInt(likeCount.textContent) + 1;
-    });
-
-    hateBtn.addEventListener('click', () => {
-      hateCount.textContent = parseInt(hateCount.textContent) + 1;
-    });
-
-    function postComment() {
-      const commentBox = document.getElementById('comment-box');
-      const text = commentBox.value.trim();
-      if (text) {
-        const commentList = document.getElementById('comments-list');
-        const newComment = document.createElement('div');
-        newComment.classList.add('comment');
-        newComment.innerHTML = `
-          <img src="profile_icon.jpg" alt="Profile" class="comment-profile" />
-          <div>
-            <strong>cookycharacter</strong>
-            <p>${text}</p>
-          </div>`;
-        commentList.appendChild(newComment);
-        commentBox.value = '';
-      }
-    }
-  </script>
 </body>
 </html>
