@@ -4,129 +4,139 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MarkTube</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="marktube-body">
+<body>
+  <div class="page-container">
+    <header class="top-bar">
+      <img src="marktube_logo.png" alt="MarkTube Logo" class="logo" />
+      <input type="text" placeholder="Search..." class="search-bar" />
+      <img src="profile_icon.jpg" alt="Profile Icon" class="profile-icon" />
+    </header>
 
-  <header>
-    <img src="marktubelogo.png" alt="MarkTube Logo" id="logo" />
-    <div class="search-bar">
-      <input type="text" placeholder="Search" disabled />
-    </div>
-    <img src="marktubepfp.jpg" alt="Profile" class="profile-icon" />
-  </header>
+    <main class="main-content">
+      <section class="video-section">
+        <video src="main_video.mp4" controls class="main-video"></video>
+        <h1 class="video-title">VIDEO TITLE</h1>
 
-  <div class="page">
-    <!-- Main video and comments -->
-    <div class="main-content">
-      <video src="marktubevideo.mp4" controls></video>
-      <h2>VIDEO TITLE</h2>
-
-      <!-- Like and Hate buttons -->
-      <div class="reaction-buttons">
-        <button id="likeBtn" onclick="updateLikes()">👍 Like (<span id="likeCount">0</span>)</button>
-        <button id="hateBtn" onclick="updateHates()">🖕 HATE (<span id="hateCount">0</span>)</button>
-      </div>
-
-      <div class="comment-section">
-        <h3>Comments</h3>
-        <div class="comment-box">
-          <img src="marktubepfp.jpg" alt="Profile Picture" />
-          <textarea id="commentInput" placeholder="Add a comment..."></textarea>
-          <button onclick="postComment()">Post</button>
+        <div class="video-stats">
+          <p id="view-count">0 views</p>
+          <div class="reactions">
+            <button id="like-btn">👍 Like <span id="like-count">0</span></button>
+            <button id="hate-btn">🖕 HATE <span id="hate-count">0</span></button>
+          </div>
         </div>
-        <div class="comments-display" id="commentsDisplay"></div>
-      </div>
-    </div>
 
-    <!-- Sidebar thumbnails -->
-    <div class="sidebar">
-      <div class="sidebar-item">
-        <img src="marktubevideo1.jpg" />
-        <span>Why Josuke sucks and you should hate him too</span>
-        <span class="author">By RohanGaming</span>
-      </div>
-      <div class="sidebar-item">
-        <img src="marktubevideo2.jpg" />
-        <span>Placeholder 2</span>
-        <span class="author">Author</span>
-      </div>
-      <div class="sidebar-item">
-        <img src="marktubevideo3.jpg" />
-        <span>Placeholder 3</span>
-        <span class="author">Author</span>
-      </div>
-      <div class="sidebar-item">
-        <img src="marktubevideo4.jpg" />
-        <span>Placeholder 4</span>
-        <span class="author">Author</span>
-      </div>
-      <div class="sidebar-item">
-        <img src="marktubevideo5.jpg" />
-        <span>Placeholder 5</span>
-        <span class="author">Author</span>
-      </div>
-      <div class="sidebar-item">
-        <img src="marktubevideo6.jpg" />
-        <span>Placeholder 6</span>
-        <span class="author">Author</span>
-      </div>
-      <div class="sidebar-item">
-        <img src="marktubevideo7.jpg" />
-        <span>Placeholder 7</span>
-        <span class="author">Author</span>
-      </div>
-      <div class="sidebar-item">
-        <img src="marktubevideo8.jpg" />
-        <span>Placeholder 8</span>
-        <span class="author">Author</span>
-      </div>
-      <div class="sidebar-item">
-        <img src="marktubevideo9.jpg" />
-        <span>Placeholder 9</span>
-        <span class="author">Author</span>
-      </div>
-      <div class="sidebar-item">
-        <img src="marktubevideo10.jpg" />
-        <span>Placeholder 10</span>
-        <span class="author">Author</span>
-      </div>
-    </div>
+        <div class="channel-info">
+          <img src="marksicon.jpg" alt="Channel Icon" class="channel-icon" />
+          <div class="channel-text">
+            <p class="channel-name">BrolyWeed</p>
+            <button class="worship-button">Worship</button>
+          </div>
+        </div>
+
+        <div class="comment-section">
+          <div class="comment-input">
+            <img src="profile_icon.jpg" alt="Profile" class="comment-profile" />
+            <input type="text" id="comment-box" placeholder="Add a comment..." />
+            <button onclick="postComment()">Post</button>
+          </div>
+          <div id="comments-list"></div>
+        </div>
+      </section>
+
+      <aside class="sidebar">
+        <div class="thumbnail">
+          <img src="thumb1.jpg" alt="Thumb 1" />
+          <p>Why Josuke sucks and you should hate him too</p>
+          <small>By RohanGaming</small>
+        </div>
+        <!-- 9 more thumbnails -->
+        <div class="thumbnail">
+          <img src="thumb2.jpg" alt="Thumb 2" />
+          <p>Placeholder 2</p>
+          <small>By Author</small>
+        </div>
+        <div class="thumbnail">
+          <img src="thumb3.jpg" alt="Thumb 3" />
+          <p>Placeholder 3</p>
+          <small>By Author</small>
+        </div>
+        <div class="thumbnail">
+          <img src="thumb4.jpg" alt="Thumb 4" />
+          <p>Placeholder 4</p>
+          <small>By Author</small>
+        </div>
+        <div class="thumbnail">
+          <img src="thumb5.jpg" alt="Thumb 5" />
+          <p>Placeholder 5</p>
+          <small>By Author</small>
+        </div>
+        <div class="thumbnail">
+          <img src="thumb6.jpg" alt="Thumb 6" />
+          <p>Placeholder 6</p>
+          <small>By Author</small>
+        </div>
+        <div class="thumbnail">
+          <img src="thumb7.jpg" alt="Thumb 7" />
+          <p>Placeholder 7</p>
+          <small>By Author</small>
+        </div>
+        <div class="thumbnail">
+          <img src="thumb8.jpg" alt="Thumb 8" />
+          <p>Placeholder 8</p>
+          <small>By Author</small>
+        </div>
+        <div class="thumbnail">
+          <img src="thumb9.jpg" alt="Thumb 9" />
+          <p>Placeholder 9</p>
+          <small>By Author</small>
+        </div>
+        <div class="thumbnail">
+          <img src="thumb10.jpg" alt="Thumb 10" />
+          <p>Placeholder 10</p>
+          <small>By Author</small>
+        </div>
+      </aside>
+    </main>
   </div>
 
   <script>
-    let likeCount = 0;
-    let hateCount = 0;
+    const likeBtn = document.getElementById('like-btn');
+    const hateBtn = document.getElementById('hate-btn');
+    const likeCount = document.getElementById('like-count');
+    const hateCount = document.getElementById('hate-count');
+    const viewCount = document.getElementById('view-count');
 
-    function updateLikes() {
-      likeCount++;
-      document.getElementById("likeCount").textContent = likeCount;
-    }
+    likeCount.textContent = Math.floor(Math.random() * 26);
+    hateCount.textContent = Math.floor(Math.random() * 11);
+    viewCount.textContent = `${Math.floor(Math.random() * 100) + 1} views`;
 
-    function updateHates() {
-      hateCount++;
-      document.getElementById("hateCount").textContent = hateCount;
-    }
+    likeBtn.addEventListener('click', () => {
+      likeCount.textContent = parseInt(likeCount.textContent) + 1;
+    });
+
+    hateBtn.addEventListener('click', () => {
+      hateCount.textContent = parseInt(hateCount.textContent) + 1;
+    });
 
     function postComment() {
-      const input = document.getElementById("commentInput");
-      const display = document.getElementById("commentsDisplay");
-      const text = input.value.trim();
-      if (text === "") return;
-
-      const comment = document.createElement("div");
-      comment.className = "comment";
-      comment.innerHTML = `
-        <img src="marktubepfp.jpg" alt="Profile Picture" />
-        <div class="comment-content">
-          <strong>cookycharacter</strong>
-          <p>${text}</p>
-        </div>
-      `;
-      display.prepend(comment);
-      input.value = "";
+      const commentBox = document.getElementById('comment-box');
+      const text = commentBox.value.trim();
+      if (text) {
+        const commentList = document.getElementById('comments-list');
+        const newComment = document.createElement('div');
+        newComment.classList.add('comment');
+        newComment.innerHTML = `
+          <img src="profile_icon.jpg" alt="Profile" class="comment-profile" />
+          <div>
+            <strong>cookycharacter</strong>
+            <p>${text}</p>
+          </div>`;
+        commentList.appendChild(newComment);
+        commentBox.value = '';
+      }
     }
   </script>
-
 </body>
 </html>
