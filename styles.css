@@ -150,247 +150,178 @@ header {
 }
 /* Reset + layout */
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
+body, html {
+  height: 100%;
+  width: 100%;
   font-family: Arial, sans-serif;
   background-color: #f9f9f9;
 }
+/* General reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-/* Top bar */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 40px;
-  background-color: #7a4fbf;  /* Lighter purple */
+/* Body and background */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #1e0529; /* Isolated deep purple background */
+  padding-top: 100px;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.top-bar {
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #2a0a3c; /* lighter purple for top bar */
+  padding: 15px 30px;
+  box-sizing: border-box;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
 }
 
-#logo {
-  height: 40px;
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
 }
 
 .search-bar {
-  flex: 1;
-  max-width: 600px;
-  margin: 0 40px;
-}
-
-.search-bar input {
-  width: 100%;
+  width: 40%;
   padding: 8px;
   font-size: 16px;
+  border-radius: 4px;
+  border: none;
 }
 
 .profile-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
+  font-size: 24px;
+  color: white;
 }
 
-/* Main content layout */
-.page {
-  max-width: 1920px;
-  margin: 0 auto;
-  padding-top: 150px;  /* Added to move everything down */
-  padding: 20px 40px;
+.content {
   display: flex;
-  gap: 20px;
+  justify-content: space-between;
+  margin: 0 30px;
 }
 
-.main-content {
+.video-section {
   flex: 3;
 }
 
-.main-content video {
+.main-video {
   width: 100%;
-  max-width: 100%;
   height: auto;
-  aspect-ratio: 16 / 9;
+  max-height: 540px;
 }
 
-.main-content h2 {
-  margin: 10px 0;
+.video-title {
+  color: white;
+  margin-top: 10px;
+  font-size: 20px;
 }
 
-/* Like/Hate buttons */
-.reaction-buttons {
+.video-buttons {
+  margin-top: 10px;
   display: flex;
   gap: 10px;
-  margin-top: 10px;
 }
 
-.like, .hate {
-  font-size: 18px;
-  padding: 5px 10px;
+.video-buttons button {
+  font-size: 14px;
+  color: white;
   border: none;
   background: none;
   cursor: pointer;
 }
 
-/* Views */
-.view-count {
-  font-size: 14px;
-  color: #333;
-  margin-top: 5px;
+.comment-section {
+  margin-top: 30px;
 }
 
-/* Profile icon, channel name, and "Worship" button */
-.profile-box {
+.comment-input {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
-  margin-top: 10px;
-  justify-content: flex-end; /* Align items to the right of the video */
 }
 
-.profile-box img {
+.comment-profile {
   width: 40px;
   height: 40px;
   border-radius: 50%;
 }
 
-.profile-box .channel-name {
-  font-size: 16px;
-  color: #333;
-}
-
-.profile-box .subscriber-count {
-  font-size: 12px;
-  color: #888;
-  margin-left: 10px;
-}
-
-.profile-box button {
-  background-color: #000;
-  color: #fff;
-  border: none;
-  padding: 5px 12px;
+#commentBox {
+  flex: 1;
+  padding: 10px;
   font-size: 14px;
+  border-radius: 4px;
+  border: none;
+}
+
+#postComment {
+  background-color: #663399;
+  color: white;
+  border: none;
+  padding: 10px;
   cursor: pointer;
+  border-radius: 4px;
 }
 
-.profile-box button:hover {
-  background-color: #333;
+#commentsContainer {
+  margin-top: 20px;
 }
 
-/* Sidebar */
+.comment {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+  color: white;
+}
+
 .sidebar {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  padding-left: 20px;
 }
 
-.sidebar-item {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.sidebar img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: 4px;
-  object-fit: cover;
-}
-
-.sidebar span {
-  font-size: 14px;
-  color: #444;
-}
-
-/* MarkTube specific styles */
-
-/* Main MarkTube page styling */
-.marktube-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-
-.marktube-header {
-  font-size: 36px;
-  font-weight: bold;
-  color: #7a4fbf;
-  margin-bottom: 20px;
-}
-
-.marktube-video {
-  width: 100%;
-  max-width: 800px;
-  margin-bottom: 20px;
-}
-
-.marktube-description {
-  font-size: 18px;
-  color: #333;
-  margin-bottom: 20px;
-}
-
-.marktube-reactions {
-  display: flex;
-  gap: 20px;
-  margin-top: 20px;
-}
-
-.marktube-reactions button {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #7a4fbf;
+.video-thumb {
+  background-color: #2a0a3c;
   color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.marktube-reactions button:hover {
-  background-color: #5e3c9b;
-}
-
-/* MarkTube Comment section */
-.marktube-comments {
-  width: 100%;
-  max-width: 800px;
-  margin-top: 30px;
-}
-
-.marktube-comments input {
-  width: 100%;
   padding: 10px;
-  font-size: 16px;
-  margin-bottom: 10px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
+  border-radius: 4px;
 }
 
-.marktube-comments .comment {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 15px;
+.video-thumb img {
+  width: 100%;
+  border-radius: 4px;
 }
 
-.marktube-comments .comment img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+.thumb-text {
+  margin-top: 5px;
 }
 
-.marktube-comments .comment-text {
-  font-size: 16px;
-  color: #333;
-}
-
-.marktube-comments .comment-time {
+.author {
   font-size: 12px;
-  color: #888;
+  color: #ccc;
 }
