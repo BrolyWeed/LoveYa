@@ -242,30 +242,33 @@ header {
   margin-top: 5px;
 }
 
-/* Add this to the CSS to position the profile box on the right */
-.profile-box-right {
+/* Profile icon, channel name, and "Worship" button */
+.profile-box {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-top: 10px;
-  justify-content: flex-start; /* Align to the left in the flex container */
-  width: 100%; /* Ensures it doesn't exceed the available space */
-  margin-left: auto; /* Pushes it to the right */
+  justify-content: flex-end; /* Align items to the right of the video */
 }
 
-/* Make sure the profile image size and button are good */
-.profile-box-right img {
+.profile-box img {
   width: 40px;
   height: 40px;
   border-radius: 50%;
 }
 
-.profile-box-right .channel-name {
+.profile-box .channel-name {
   font-size: 16px;
   color: #333;
 }
 
-.profile-box-right button {
+.profile-box .subscriber-count {
+  font-size: 12px;
+  color: #888;
+  margin-left: 10px;
+}
+
+.profile-box button {
   background-color: #000;
   color: #fff;
   border: none;
@@ -274,10 +277,9 @@ header {
   cursor: pointer;
 }
 
-.profile-box-right button:hover {
+.profile-box button:hover {
   background-color: #333;
 }
-
 
 /* Sidebar */
 .sidebar {
