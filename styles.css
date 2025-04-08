@@ -242,13 +242,12 @@ header {
   margin-top: 5px;
 }
 
-/* Profile icon, channel name, and "Worship" button */
+/* Profile icon and channel name */
 .profile-box {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-top: 10px;
-  justify-content: flex-end; /* Align items to the right of the video */
 }
 
 .profile-box img {
@@ -260,12 +259,6 @@ header {
 .profile-box .channel-name {
   font-size: 16px;
   color: #333;
-}
-
-.profile-box .subscriber-count {
-  font-size: 12px;
-  color: #888;
-  margin-left: 10px;
 }
 
 .profile-box button {
