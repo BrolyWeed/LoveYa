@@ -4,98 +4,129 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MarkTube</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-  <div class="container">
-    <header class="top-bar">
-      <div class="logo">MarkTube</div>
-      <input type="text" class="search-bar" placeholder="Search...">
-      <div class="profile-icon">👤</div>
-    </header>
+<body class="marktube-body">
 
-    <main class="content">
-      <div class="video-section">
-        <video controls class="main-video">
-          <source src="your-video.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <h1 class="video-title">VIDEO TITLE</h1>
-        <div class="video-buttons">
-          <button id="likeButton">👍 Like (<span id="likeCount">0</span>)</button>
-          <button id="hateButton">🖕 HATE (<span id="hateCount">0</span>)</button>
-        </div>
-        <div class="comment-section">
-          <div class="comment-input">
-            <img src="profile.jpg" alt="Profile" class="comment-profile">
-            <textarea id="commentBox" placeholder="Add a comment..."></textarea>
-            <button id="postComment">Post</button>
-          </div>
-          <div id="commentsContainer"></div>
-        </div>
+  <header>
+    <img src="marktubelogo.png" alt="MarkTube Logo" id="logo" />
+    <div class="search-bar">
+      <input type="text" placeholder="Search" disabled />
+    </div>
+    <img src="marktubepfp.jpg" alt="Profile" class="profile-icon" />
+  </header>
+
+  <div class="page">
+    <!-- Main video and comments -->
+    <div class="main-content">
+      <video src="marktubevideo.mp4" controls></video>
+      <h2>VIDEO TITLE</h2>
+
+      <!-- Like and Hate buttons -->
+      <div class="reaction-buttons">
+        <button id="likeBtn" onclick="updateLikes()">👍 Like (<span id="likeCount">0</span>)</button>
+        <button id="hateBtn" onclick="updateHates()">🖕 HATE (<span id="hateCount">0</span>)</button>
       </div>
 
-      <aside class="sidebar">
-        <div class="video-thumb">
-          <img src="thumb1.jpg" alt="Thumbnail">
-          <div class="thumb-text">
-            <div>Why Josuke sucks and you should hate him too</div>
-            <div class="author">By RohanGaming</div>
-          </div>
+      <div class="comment-section">
+        <h3>Comments</h3>
+        <div class="comment-box">
+          <img src="marktubepfp.jpg" alt="Profile Picture" />
+          <textarea id="commentInput" placeholder="Add a comment..."></textarea>
+          <button onclick="postComment()">Post</button>
         </div>
-        <!-- Placeholder thumbnails -->
-        <div class="video-thumb"><div>placeholder1</div><div class="author">By Author</div></div>
-        <div class="video-thumb"><div>placeholder2</div><div class="author">By Author</div></div>
-        <div class="video-thumb"><div>placeholder3</div><div class="author">By Author</div></div>
-        <div class="video-thumb"><div>placeholder4</div><div class="author">By Author</div></div>
-        <div class="video-thumb"><div>placeholder5</div><div class="author">By Author</div></div>
-        <div class="video-thumb"><div>placeholder6</div><div class="author">By Author</div></div>
-        <div class="video-thumb"><div>placeholder7</div><div class="author">By Author</div></div>
-        <div class="video-thumb"><div>placeholder8</div><div class="author">By Author</div></div>
-        <div class="video-thumb"><div>placeholder9</div><div class="author">By Author</div></div>
-        <div class="video-thumb"><div>placeholder10</div><div class="author">By Author</div></div>
-      </aside>
-    </main>
+        <div class="comments-display" id="commentsDisplay"></div>
+      </div>
+    </div>
+
+    <!-- Sidebar thumbnails -->
+    <div class="sidebar">
+      <div class="sidebar-item">
+        <img src="marktubevideo1.jpg" />
+        <span>Why Josuke sucks and you should hate him too</span>
+        <span class="author">By RohanGaming</span>
+      </div>
+      <div class="sidebar-item">
+        <img src="marktubevideo2.jpg" />
+        <span>Placeholder 2</span>
+        <span class="author">Author</span>
+      </div>
+      <div class="sidebar-item">
+        <img src="marktubevideo3.jpg" />
+        <span>Placeholder 3</span>
+        <span class="author">Author</span>
+      </div>
+      <div class="sidebar-item">
+        <img src="marktubevideo4.jpg" />
+        <span>Placeholder 4</span>
+        <span class="author">Author</span>
+      </div>
+      <div class="sidebar-item">
+        <img src="marktubevideo5.jpg" />
+        <span>Placeholder 5</span>
+        <span class="author">Author</span>
+      </div>
+      <div class="sidebar-item">
+        <img src="marktubevideo6.jpg" />
+        <span>Placeholder 6</span>
+        <span class="author">Author</span>
+      </div>
+      <div class="sidebar-item">
+        <img src="marktubevideo7.jpg" />
+        <span>Placeholder 7</span>
+        <span class="author">Author</span>
+      </div>
+      <div class="sidebar-item">
+        <img src="marktubevideo8.jpg" />
+        <span>Placeholder 8</span>
+        <span class="author">Author</span>
+      </div>
+      <div class="sidebar-item">
+        <img src="marktubevideo9.jpg" />
+        <span>Placeholder 9</span>
+        <span class="author">Author</span>
+      </div>
+      <div class="sidebar-item">
+        <img src="marktubevideo10.jpg" />
+        <span>Placeholder 10</span>
+        <span class="author">Author</span>
+      </div>
+    </div>
   </div>
 
   <script>
-    const likeBtn = document.getElementById('likeButton');
-    const hateBtn = document.getElementById('hateButton');
-    const likeCount = document.getElementById('likeCount');
-    const hateCount = document.getElementById('hateCount');
-    const commentBox = document.getElementById('commentBox');
-    const postComment = document.getElementById('postComment');
-    const commentsContainer = document.getElementById('commentsContainer');
+    let likeCount = 0;
+    let hateCount = 0;
 
-    let likes = 0;
-    let hates = 0;
+    function updateLikes() {
+      likeCount++;
+      document.getElementById("likeCount").textContent = likeCount;
+    }
 
-    likeBtn.addEventListener('click', () => {
-      likes++;
-      likeCount.textContent = likes;
-    });
+    function updateHates() {
+      hateCount++;
+      document.getElementById("hateCount").textContent = hateCount;
+    }
 
-    hateBtn.addEventListener('click', () => {
-      hates++;
-      hateCount.textContent = hates;
-    });
+    function postComment() {
+      const input = document.getElementById("commentInput");
+      const display = document.getElementById("commentsDisplay");
+      const text = input.value.trim();
+      if (text === "") return;
 
-    postComment.addEventListener('click', () => {
-      const text = commentBox.value.trim();
-      if (text) {
-        const comment = document.createElement('div');
-        comment.className = 'comment';
-        comment.innerHTML = `
-          <img src="profile.jpg" alt="Profile" class="comment-profile">
-          <div>
-            <strong>cookycharacter</strong>
-            <p>${text}</p>
-          </div>
-        `;
-        commentsContainer.appendChild(comment);
-        commentBox.value = '';
-      }
-    });
+      const comment = document.createElement("div");
+      comment.className = "comment";
+      comment.innerHTML = `
+        <img src="marktubepfp.jpg" alt="Profile Picture" />
+        <div class="comment-content">
+          <strong>cookycharacter</strong>
+          <p>${text}</p>
+        </div>
+      `;
+      display.prepend(comment);
+      input.value = "";
+    }
   </script>
+
 </body>
 </html>
