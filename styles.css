@@ -242,26 +242,30 @@ header {
   margin-top: 5px;
 }
 
-/* Profile icon and channel name */
-.profile-box {
+/* Add this to the CSS to position the profile box on the right */
+.profile-box-right {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-top: 10px;
+  justify-content: flex-start; /* Align to the left in the flex container */
+  width: 100%; /* Ensures it doesn't exceed the available space */
+  margin-left: auto; /* Pushes it to the right */
 }
 
-.profile-box img {
+/* Make sure the profile image size and button are good */
+.profile-box-right img {
   width: 40px;
   height: 40px;
   border-radius: 50%;
 }
 
-.profile-box .channel-name {
+.profile-box-right .channel-name {
   font-size: 16px;
   color: #333;
 }
 
-.profile-box button {
+.profile-box-right button {
   background-color: #000;
   color: #fff;
   border: none;
@@ -270,9 +274,10 @@ header {
   cursor: pointer;
 }
 
-.profile-box button:hover {
+.profile-box-right button:hover {
   background-color: #333;
 }
+
 
 /* Sidebar */
 .sidebar {
