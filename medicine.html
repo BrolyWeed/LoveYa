@@ -3,12 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title></title>
+  <title>Flower Bear</title>
   <style>
-    /* Add your CSS here */
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #f0f0f0;
+    }
+    #flowerbear {
+      width: 300px; /* Adjust size as needed */
+      height: auto;
+      cursor: pointer;
+    }
+    #text-box {
+      font-size: 1.2em;
+      margin-top: 20px;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
-  <!-- Add your content here -->
+  <!-- Image centered on the page -->
+  <img id="flowerbear" src="flowerbear.png" alt="Flower Bear" onclick="playRandomSong()" />
+
+  <!-- Text box for future text content -->
+  <div id="text-box">sample text</div>
+
+  <audio id="audio-player" preload="auto"></audio>
+
+  <script>
+    const songs = [
+      'iwubyou.mp3',
+      'willyoubemyfriend.mp3',
+      'ilovespendingtimewithyou.mp3',
+      'ineedahug.mp3',
+      'letsbefriends.mp3'
+    ];
+
+    function playRandomSong() {
+      const randomIndex = Math.floor(Math.random() * songs.length);
+      const audioPlayer = document.getElementById('audio-player');
+      audioPlayer.src = songs[randomIndex];
+      audioPlayer.play();
+    }
+  </script>
 </body>
 </html>
