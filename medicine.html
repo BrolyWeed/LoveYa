@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Flowers</title>
+  <title>Flower Bear</title>
   <style>
     body {
       background-color: black;
@@ -17,20 +17,20 @@
     img {
       display: block;
       margin: 80px auto 30px auto;
-      width: 300px; /* made larger */
+      width: 300px;
       cursor: pointer;
     }
 
     .textbox {
       margin-top: 30px;
-      font-size: 24px; /* increased font size */
+      font-size: 24px;
     }
 
     button {
       background-color: #222;
       color: white;
       border: 2px solid white;
-      padding: 16px 32px; /* bigger buttons */
+      padding: 16px 32px;
       margin: 15px;
       cursor: pointer;
       font-size: 20px;
@@ -52,7 +52,7 @@
   <audio id="audio-player"></audio>
 
   <!-- Textbox -->
-  <div class="textbox">Here are your flowers baby, i love you so much</div>
+  <div class="textbox">sample text</div>
 
   <script>
     const songs = [
@@ -63,12 +63,22 @@
       'letsbefriends.mp3'
     ];
 
+    const audioElement = document.getElementById('audio-player');
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    const track = audioContext.createMediaElementSource(audioElement);
+    const gainNode = audioContext.createGain();
+    gainNode.gain.value = 2; // Boost volume to 2x
+
+    track.connect(gainNode).connect(audioContext.destination);
+
     function playRandomSong() {
       const randomIndex = Math.floor(Math.random() * songs.length);
-      const audioPlayer = document.getElementById('audio-player');
-      audioPlayer.src = songs[randomIndex];
-      audioPlayer.volume = 1.0; // Max volume
-      audioPlayer.play();
+      audioElement.src = songs[randomIndex];
+      audioElement.play();
+      // Ensure context resumes if it was suspended
+      if (audioContext.state === 'suspended') {
+        audioContext.resume();
+      }
     }
   </script>
 </body>
