@@ -6,35 +6,53 @@
   <title>Flower Bear</title>
   <style>
     body {
+      background-color: black;
+      color: white;
+      font-family: sans-serif;
+      text-align: center;
       margin: 0;
       padding: 0;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background-color: #f0f0f0;
     }
-    #flowerbear {
-      width: 300px; /* Adjust size as needed */
-      height: auto;
+
+    img {
+      display: block;
+      margin: 60px auto 20px auto;
+      width: 200px;
       cursor: pointer;
     }
-    #text-box {
-      font-size: 1.2em;
+
+    .textbox {
       margin-top: 20px;
-      text-align: center;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #222;
+      color: white;
+      border: 1px solid white;
+      padding: 10px 20px;
+      margin: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 8px;
+      transition: background-color 0.2s;
+    }
+
+    button:hover {
+      background-color: #444;
     }
   </style>
 </head>
 <body>
-  <!-- Image centered on the page -->
-  <img id="flowerbear" src="flowerbear.png" alt="Flower Bear" onclick="playRandomSong()" />
 
-  <!-- Text box for future text content -->
-  <div id="text-box">I love you baby, I know you've been really stressed lately and havent been having the best time. I "got you some flowers" to maybe cheer you up.</div>
+  <!-- Flower Bear Image -->
+  <img src="flowerbear.png" alt="Flower Bear" onclick="playRandomSong()" />
 
-  <audio id="audio-player" preload="auto"></audio>
+  <!-- Audio Element -->
+  <audio id="audio-player"></audio>
+
+  <!-- Textbox -->
+  <div class="textbox">sample text</div>
 
   <script>
     const songs = [
@@ -49,8 +67,10 @@
       const randomIndex = Math.floor(Math.random() * songs.length);
       const audioPlayer = document.getElementById('audio-player');
       audioPlayer.src = songs[randomIndex];
+      audioPlayer.volume = 1.0; // Max volume
       audioPlayer.play();
     }
   </script>
 </body>
 </html>
+
